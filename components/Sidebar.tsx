@@ -38,14 +38,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab = 'voice', onTabChan
   return (
     <div className="h-full w-[280px] bg-white dark:bg-black border-r border-zinc-200 dark:border-white/5 flex flex-col p-6 flex-shrink-0 relative z-20 transition-colors duration-300">
       <div className="flex items-center space-x-3 mb-10 px-2">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-blue-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
-          <span className="font-bold text-white text-lg">C</span>
-        </div>
-        <div>
-          <h1 className="text-sm font-bold text-zinc-900 dark:text-white leading-tight">Ceylinco</h1>
-          <p className="text-[10px] text-zinc-500 font-medium tracking-wide uppercase mt-0.5">Insurance Assistant</p>
-        </div>
-      </div>
+  <img 
+    src="/logo.png" 
+    alt="Moorgate Finance" 
+    className="w-9 h-9 rounded-xl object-contain"
+  />
+  <div>
+    <h1 className="text-sm font-bold text-zinc-900 dark:text-white leading-tight">MOORGATE</h1>
+    <p className="text-[10px] text-zinc-500 font-medium tracking-wide uppercase mt-0.5">Finance Assistant</p>
+  </div>
+</div>
 
       <nav className="flex-1 space-y-1">
         <div className="px-4 py-2 text-[11px] font-semibold text-zinc-400 dark:text-zinc-600 uppercase tracking-wider mb-2">Platform</div>

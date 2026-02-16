@@ -31,18 +31,46 @@ export function Orb({
   className,
   resizeDebounce = 100,
 }: OrbProps) {
+  const canvasRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleContextLost = (event: Event) => {
+      event.preventDefault()
+      console.warn('WebGL context lost, attempting to restore...')
+    }
+
+    const handleContextRestored = () => {
+      console.log('WebGL context restored')
+    }
+
+    const canvas = canvasRef.current?.querySelector('canvas')
+    if (canvas) {
+      canvas.addEventListener('webglcontextlost', handleContextLost)
+      canvas.addEventListener('webglcontextrestored', handleContextRestored)
+      
+      return () => {
+        canvas.removeEventListener('webglcontextlost', handleContextLost)
+        canvas.removeEventListener('webglcontextrestored', handleContextRestored)
+      }
+    }
+  }, [])
+
   return (
-    <div className={className ?? "relative h-full w-full"}>
+    <div ref={canvasRef} className={className ?? "relative h-full w-full"}>
       <Canvas
         resize={{ debounce: resizeDebounce }}
         gl={{
           alpha: true,
           antialias: true,
           premultipliedAlpha: true,
-          powerPreference: "high-performance"
+          powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: false
         }}
         dpr={[1, 2]}
         camera={{ position: [0, 0, 5], fov: 75 }}
+        onCreated={({ gl }) => {
+          gl.domElement.addEventListener('webglcontextlost', (e) => e.preventDefault())
+        }}
       >
         <Scene
           colors={colors}
