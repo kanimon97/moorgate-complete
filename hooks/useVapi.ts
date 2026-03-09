@@ -94,8 +94,8 @@ export const useVapi = () => {
       try {
         await vapiRef.current?.start({
           model: {
-            provider: 'openai',
-            model: 'gpt-4o-mini',
+            provider: 'google',
+            model: 'gemini-2.0-flash-exp',
             temperature: 0.4,
             maxTokens: 250,
             messages: [

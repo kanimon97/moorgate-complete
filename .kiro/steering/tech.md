@@ -8,7 +8,7 @@
 ## Key Libraries & Frameworks
 
 ### Core
-- `@google/genai` - Google Gemini AI SDK for live audio streaming
+- `@vapi-ai/web` (v2.5.2) - Vapi Web SDK for voice AI integration
 - `react` & `react-dom` - UI rendering
 
 ### 3D Graphics & Visualization
@@ -22,18 +22,49 @@
 - `uuid` - Unique ID generation
 - Tailwind CSS (via utility classes) - Styling
 
-## Configuration
+## Voice AI Configuration
 
-### Path Aliases
-- `@/*` maps to project root for clean imports
+### Vapi Integration
+- **Provider**: Vapi Web SDK
+- **Model**: Google Gemini 2.0 Flash Exp (gemini-2.0-flash-exp)
+- **Voice Provider**: ElevenLabs
+- **Transcriber**: Deepgram Nova-2 (en-GB)
+- **Temperature**: 0.4
+- **Max Tokens**: 250
+- **Silence Timeout**: 30 seconds
+- **Max Duration**: 600 seconds (10 minutes)
 
 ### Environment Variables
-- `GEMINI_API_KEY` - Required for Google Gemini API access (set in `.env.local`)
+- `VITE_VAPI_PUBLIC_KEY` - Vapi public API key (set in `.env`)
+- Voice ID and system prompts configured in `constants.ts`
 
 ### Audio Processing
-- Input: 16kHz PCM audio from microphone
-- Output: 24kHz PCM audio from Gemini
-- Uses Web Audio API with ScriptProcessorNode for real-time processing
+- Real-time bidirectional audio streaming via Vapi
+- Volume level monitoring for visual feedback
+- Conversation state tracking (inactive, listening, thinking, talking)
+
+## Powers & MCP
+
+### Installed Powers
+- **supabase-hosted** - Supabase integration for database, auth, storage, and realtime
+
+### Installed Skills
+- **Vapi Skills** - Located at `.kiro/skills/vapi-skills/`
+  - create-assistant - Create Vapi assistants
+  - create-call - Make Vapi calls
+  - create-phone-number - Set up phone numbers
+  - create-squad - Build agent squads
+  - create-tool - Define custom tools
+  - create-workflow - Configure workflows
+  - setup-api-key - Configure API authentication
+  - setup-webhook - Set up webhook endpoints
+
+### MCP Servers
+- **vapi-docs** - Live access to Vapi documentation via Model Context Protocol
+  - Configured in `.kiro/settings/mcp.json`
+  - Provides RAG-based access to full Vapi knowledge base
+  - Complements skills with advanced configuration, troubleshooting, and SDK details
+  - No API key required for documentation access
 
 ## Common Commands
 
@@ -49,6 +80,9 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Add Vapi Skills (recommended)
+npx skills add VapiAI/skills
 ```
 
 ## Development Notes
@@ -56,3 +90,4 @@ npm run preview
 - Hot module replacement enabled
 - TypeScript strict mode with experimental decorators
 - Module resolution: bundler mode (ESNext)
+- Vapi public key stored in environment variables

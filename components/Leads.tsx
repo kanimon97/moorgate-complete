@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Upload, Plus, Trash2, Edit2, Save, FileText, Sun, Moon } from 'lucide-react';
+import { Upload, Plus, Trash2, Edit2, Save, FileText, Sun, Moon } from './Icons';
 import { Prompt, Lead } from '../types';
 
 interface LeadsProps {

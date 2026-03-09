@@ -1,10 +1,13 @@
 # Product Overview
 
-This is a voice-enabled insurance customer service application for Ceylinco Life Insurance, Sri Lanka. The application features:
+This is a voice-enabled finance assistant application for Moorgate Finance, a UK-based finance brokerage firm. The application features:
 
-- **Voice Agent**: Real-time voice conversation with an AI assistant named "Chathurika" that speaks Sinhala and provides information about Ceylinco Life insurance products
-- **Multi-tab Interface**: Dashboard, policies, claims, payments, call logs, chat, and settings
+- **Voice Agent**: Real-time voice conversation with an AI assistant named "Hugh" that uses British English to reconnect with previous clients
+- **Multi-tab Interface**: Voice Agent, Chat Support, Leads Management, Prompts Library, Rules Engine, Dashboard, Call Logs, and Settings
 - **Dark/Light Theme**: User-selectable theme with smooth transitions
-- **Real-time Audio Processing**: Bidirectional audio streaming with visual feedback (animated orb)
+- **Real-time Audio Processing**: Bidirectional audio streaming with visual feedback (animated 3D orb)
+- **Lead Management**: CSV import, contact management, and prompt assignment
+- **Prompt Library**: Create and manage AI agent prompts
+- **Rules Engine**: Configure call routing and automated actions
 
-The voice agent uses Google's Gemini 2.5 Flash with native audio capabilities to provide natural, empathetic customer service in Sinhala, answering questions about life insurance products, medical coverage, education plans, and more.
+The voice agent uses Vapi's Web SDK with OpenAI GPT-4o-mini, ElevenLabs voice synthesis, and Deepgram transcription to provide natural, professional, and friendly client relationship management. The agent is designed to sound authentically human with natural pauses, filler words, and conversational British English phrasing.

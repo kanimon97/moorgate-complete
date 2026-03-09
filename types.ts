@@ -20,3 +20,20 @@ export interface EmailDetails {
   recipient?: string;
   summary: string;
 }
+
+export interface Prompt {
+  id: string;
+  name: string;
+  content: string;
+  updatedAt: string;
+}
+
+export interface Lead {
+  id: string;
+  name: string;
+  number: string;
+  email: string;
+  address: string;
+  policyNumber: string;
+  promptId: string;
+}

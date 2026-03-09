@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { Phone, PhoneMissed, CalendarCheck, Clock, ArrowUpRight, Sparkles, Sun, Moon } from './Icons';
-import { GoogleGenAI } from "@google/genai";
+// import { GoogleGenAI } from "@google/genai"; // Removed - using Vapi with Gemini instead
 import ReactMarkdown from 'react-markdown';
 import { cn } from '../utils/cn';
 
@@ -44,22 +44,23 @@ export const Dashboard: React.FC<DashboardProps> = ({ isDarkMode, toggleTheme })
   const handleGenerateInsights = async () => {
     setLoadingInsights(true);
     try {
-        const apiKey = process.env.API_KEY;
-        if (!apiKey) throw new Error("API Key not found");
+        // TODO: Implement AI insights using Vapi API or backend service
+        // For now, showing mock insights
+        await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
         
-        const ai = new GoogleGenAI({ apiKey });
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: `Analyze the following call logs and statistics to provide 3 concise, actionable strategic insights for the insurance agency. Focus on booking conversion and customer sentiment. 
-            
-            Stats: ${JSON.stringify(MOCK_STATS)}
-            Logs: ${MOCK_CALL_LOGS}`
-        });
-        
-        setInsights(response.text || "No insights generated.");
+        setInsights(`### Key Insights from Call Analysis
+
+**1. Strong Conversion Rate**
+Your booking conversion rate of 23.9% (34 bookings from 142 calls) is above industry average. Thursday and Friday show peak performance with conversion rates exceeding 60%.
+
+**2. Missed Call Opportunity**
+8 missed calls represent potential lost revenue. Consider implementing callback automation or extending coverage hours to capture these opportunities.
+
+**3. Customer Sentiment Trends**
+Positive sentiment correlates strongly with longer call durations (5+ minutes), suggesting customers value detailed explanations. Brief calls tend to result in information-only outcomes.`);
     } catch (e) {
         console.error(e);
-        setInsights("Unable to generate insights at this time. Please check your API key.");
+        setInsights("Unable to generate insights at this time.");
     } finally {
       setLoadingInsights(false);
     }

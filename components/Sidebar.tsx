@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Activity, FileText, DollarSign, Settings, MoreVertical, MessageSquare, LayoutDashboard, Phone } from './Icons';
+import { Shield, Activity, FileText, DollarSign, Settings, MoreVertical, MessageSquare, LayoutDashboard, Phone, Users, GitBranch } from './Icons';
 import { cn } from '../utils/cn';
 
 interface SidebarItemProps {
@@ -63,6 +63,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab = 'voice', onTabChan
           active={activeTab === 'chat'} 
           onClick={() => onTabChange('chat')}
         />
+        
+        {/* Temporarily commented out
         <SidebarItem 
           icon={<FileText className="w-4 h-4" />} 
           label="Policies" 
@@ -74,6 +76,27 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab = 'voice', onTabChan
           label="Claims" 
           active={activeTab === 'claims'} 
           onClick={() => onTabChange('claims')}
+        />
+        */}
+        
+        <div className="px-4 py-2 text-[11px] font-semibold text-zinc-400 dark:text-zinc-600 uppercase tracking-wider mt-6 mb-2">Management</div>
+        <SidebarItem 
+          icon={<Users className="w-4 h-4" />} 
+          label="Leads" 
+          active={activeTab === 'leads'} 
+          onClick={() => onTabChange('leads')}
+        />
+        <SidebarItem 
+          icon={<FileText className="w-4 h-4" />} 
+          label="Prompts" 
+          active={activeTab === 'prompts'} 
+          onClick={() => onTabChange('prompts')}
+        />
+        <SidebarItem 
+          icon={<GitBranch className="w-4 h-4" />} 
+          label="Rules Engine" 
+          active={activeTab === 'rules'} 
+          onClick={() => onTabChange('rules')}
         />
         
         <div className="px-4 py-2 text-[11px] font-semibold text-zinc-400 dark:text-zinc-600 uppercase tracking-wider mt-6 mb-2">Account</div>
@@ -89,12 +112,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab = 'voice', onTabChan
           active={activeTab === 'call-logs'} 
           onClick={() => onTabChange('call-logs')}
         />
+        {/* Temporarily commented out
         <SidebarItem 
           icon={<DollarSign className="w-4 h-4" />} 
           label="Payments" 
           active={activeTab === 'payments'}
           onClick={() => onTabChange('payments')}
         />
+        */}
         <SidebarItem 
           icon={<Settings className="w-4 h-4" />} 
           label="Settings" 

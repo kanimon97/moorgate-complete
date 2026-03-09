@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, ArrowRight, Trash2, GitBranch, Phone, MessageSquare, Clock, AlertCircle, Sun, Moon } from 'lucide-react';
+import { Plus, Trash2, GitBranch, Sun, Moon } from './Icons';
 
 interface Rule {
   id: string;
@@ -7,6 +7,13 @@ interface Rule {
   action: string;
   isActive: boolean;
 }
+
+const ArrowRight = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
 
 export const RulesEngine: React.FC<{ isDarkMode: boolean; toggleTheme: () => void }> = ({ isDarkMode, toggleTheme }) => {
   const [rules, setRules] = useState<Rule[]>([

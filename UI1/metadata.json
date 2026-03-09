@@ -1,7 +1,0 @@
-{
-  "name": "Insurance Agent Working UI 1",
-  "description": "Next-generation AI voice assistant for insurance support using Gemini Live API.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
-}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Trash2, Save, Search, FileText, MoreVertical, Sun, Moon } from 'lucide-react';
+import { Plus, Trash2, Save, Search, FileText, MoreVertical, Sun, Moon } from './Icons';
 import { Prompt } from '../types';
 
 interface PromptsProps {
@@ -16,7 +16,6 @@ export const Prompts: React.FC<PromptsProps> = ({ isDarkMode, toggleTheme, promp
   const selectedPrompt = prompts.find(p => p.id === selectedPromptId);
 
   const handleSave = () => {
-    // In a real app, this would save to Supabase
     alert('Prompt saved successfully!');
   };
 
@@ -68,7 +67,6 @@ export const Prompts: React.FC<PromptsProps> = ({ isDarkMode, toggleTheme, promp
       </header>
 
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar List */}
         <div className="w-80 border-r border-zinc-200 dark:border-white/10 flex flex-col bg-white dark:bg-zinc-900/50">
           <div className="p-4 border-b border-zinc-200 dark:border-white/10">
             <div className="flex items-center justify-between mb-4">
@@ -125,7 +123,6 @@ export const Prompts: React.FC<PromptsProps> = ({ isDarkMode, toggleTheme, promp
           </div>
         </div>
 
-        {/* Main Editor */}
         <div className="flex-1 flex flex-col h-full overflow-hidden bg-zinc-50/50 dark:bg-black">
           {selectedPrompt ? (
             <>
